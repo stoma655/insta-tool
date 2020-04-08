@@ -6,6 +6,8 @@ app.use(express.static('public'));
 app.set('view engine', 'pug');
 app.use(express.json());
 
+const PORT = process.env.PORT || 3000
+
 app.get('/', function(req, res) {
     res.render('index.html');
 });
@@ -51,6 +53,6 @@ app.post('/userinfo', function(req, res) {
 });
 
 
-app.listen(3000, function() {
+app.listen(PORT, function() {
     console.log('node express word on 3000');
 });
