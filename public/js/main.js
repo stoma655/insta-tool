@@ -45,25 +45,28 @@ inputName.addEventListener('keyup', function() {
 function renderSearch(data) {
     searchWrap.innerHTML = "";
     let result = JSON.parse(data);
+    // console.log(result);
     for(let i = 0; i < 6; i++) {
-        let name = result.users[i].user.username;
-        let fullName = result.users[i].user.full_name;
-        let img = result.users[i].user.profile_pic_url;
-
-        let item = `
-            <div class="item getStories">
-                <div class="preloader">
-                    <span>получаем сторис</span>
-                    <img src="img/preloader.gif">
+        if (result.users[i] !== undefined) {
+            let name = result.users[i].user.username;
+            let fullName = result.users[i].user.full_name;
+            let img = result.users[i].user.profile_pic_url;
+    
+            let item = `
+                <div class="item getStories">
+                    <div class="preloader">
+                        <span>получаем сторис</span>
+                        <img src="img/preloader.gif">
+                    </div>
+                    <img src="${img}">
+                    <div class="names">
+                        <span class="name">${name}</span>
+                        <span class="fullName">${fullName}</span>
+                    </div>
                 </div>
-                <img src="${img}">
-                <div class="names">
-                    <span class="name">${name}</span>
-                    <span class="fullName">${fullName}</span>
-                </div>
-            </div>
-        `;
-        searchWrap.innerHTML += item;
+            `;
+            searchWrap.innerHTML += item;
+        }
     }
     getStories = document.querySelectorAll('.getStories');
     getStories.forEach(function(el) {

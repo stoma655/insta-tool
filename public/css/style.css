@@ -322,3 +322,45 @@ input.accountName {
     max-height: 570px;
     overflow-y: scroll;
 }
+
+
+footer {
+    width: 100%;
+}
+
+footer .wrapper {
+    max-width: 1200px;
+    margin: auto;
+    height: 150px;
+    /* border: 1px solid red; */
+    padding: 0 20px;
+}
+footer .wrapper .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .wrapper .logo span {
+    font-size: 18px;
+    font-weight: normal;
+    color: #bababa;
+}
+
+footer .wrapper .links {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer .wrapper .links a {
+    font-size: 16px;
+    font-weight: normal;
+    text-decoration: none;
+    color: #bababa;
+}
+
+footer .wrapper .links a:hover {
+    text-decoration: underline;
+}
