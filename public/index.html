@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="js/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <section class="main">
+
+        <div class="mainOverlayContent">
+            <img src="img/logo.svg" alt="">
+            <h1>Смотри и скачивай сторис анонимно!</h1>
+            <p class="mainDescr">Введи название аккаунта и смотри истории</p>
+            <input class="accountName" type="text" placeholder="Введите имя аккаунта">
+            <div class="search">
+                <div class="searchWrap">
+                    
+                </div>
+            </div>
+        </div>
+        <div id="scene" class="mainOverlayObjects">
+            <img class="object" id="o1" data-depth="0.1" src="img/objects/1.png" alt="">
+            <img class="shadow" id="s1" data-depth="0.4" src="img/shadows/1.png" alt="">
+        </div>
+
+        <div class="storys_modal">
+            <i class="fa fa-times" aria-hidden="true"></i>
+            <div class="info">
+
+            </div>
+            <div class="stories">
+                <div class="storiesWrap">
+                    <!-- <div class="imgWrap"></div>
+                    <div class="imgWrap"></div>
+                    <div class="imgWrap"></div>
+                    <div class="videoWrap"></div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
