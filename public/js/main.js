@@ -45,7 +45,7 @@ inputName.addEventListener('keyup', function() {
 function renderSearch(data) {
     searchWrap.innerHTML = "";
     let result = JSON.parse(data);
-    for(let i = 0; i < result.users.length; i++) {
+    for(let i = 0; i < 6; i++) {
         let name = result.users[i].user.username;
         let fullName = result.users[i].user.full_name;
         let img = result.users[i].user.profile_pic_url;
