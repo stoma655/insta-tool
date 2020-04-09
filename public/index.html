@@ -15,7 +15,7 @@
             <img src="img/logo.svg" alt="">
             <h1>Смотри и скачивай сторис анонимно!</h1>
             <p class="mainDescr">Введи название аккаунта и смотри истории</p>
-            <input class="accountName" type="text" placeholder="Введите имя аккаунта">
+            <input class="accountName" type="text" onkeyup="this.value=this.value.replace(/[^a-z]/gi,'')" placeholder="Введите имя аккаунта">
             <div class="search">
                 <div class="searchWrap">
                     

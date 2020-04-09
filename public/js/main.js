@@ -26,8 +26,12 @@ fetch('/userinfo', {
     console.log(JSON.parse(data));
 });
 
+let timeout;
+
 inputName.addEventListener('keyup', function() {
-    let accName = inputName.value;
+    clearInterval(timeout);
+    timeout = setTimeout(function() {
+        let accName = inputName.value;
         fetch('/search', {
             method: "POST",
             body: JSON.stringify({name: accName}),
@@ -40,13 +44,16 @@ inputName.addEventListener('keyup', function() {
         }).then((data) => {
             renderSearch(data);
         });
+    } ,500);
+    
 });
 
 function renderSearch(data) {
     searchWrap.innerHTML = "";
     let result = JSON.parse(data);
     // console.log(result);
-    for(let i = 0; i < 6; i++) {
+    
+    for(let i = 0; i < 5; i++) {
         if (result.users[i] !== undefined) {
             let name = result.users[i].user.username;
             let fullName = result.users[i].user.full_name;
