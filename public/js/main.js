@@ -4,27 +4,27 @@ let searchWrap = document.querySelector('.searchWrap');
 let modal = document.querySelector('.storys_modal');
 let closeModal = document.querySelector('.storys_modal .fa-times');
 
-let scene = document.getElementById('scene');
-let parallaxInstance = new Parallax(scene);
-parallaxInstance.scalar(12, 12);
-parallaxInstance.friction(0.02, 0.02)
+// let scene = document.getElementById('scene');
+// let parallaxInstance = new Parallax(scene);
+// parallaxInstance.scalar(12, 12);
+// parallaxInstance.friction(0.02, 0.02)
 
 closeModal.addEventListener('click', function() {
     modal.classList.remove('active');
 });
 
-fetch('/userinfo', {
-    method: "POST",
-    body: JSON.stringify({name: 'printlabshop'}),
-    credentials: 'same-origin',
-    headers: {
-        'Content-Type': 'application/json'
-      },
-}).then((response) => {
-    return response.json();
-}).then((data) => {
-    console.log(JSON.parse(data));
-});
+// fetch('/userinfo', {
+//     method: "POST",
+//     body: JSON.stringify({name: 'printlabshop'}),
+//     credentials: 'same-origin',
+//     headers: {
+//         'Content-Type': 'application/json'
+//       },
+// }).then((response) => {
+//     return response.json();
+// }).then((data) => {
+//     console.log(JSON.parse(data));
+// });
 
 let timeout;
 
@@ -53,7 +53,7 @@ function renderSearch(data) {
     let result = JSON.parse(data);
     // console.log(result);
     
-    for(let i = 0; i < 5; i++) {
+    for(let i = 0; i < 4; i++) {
         if (result.users[i] !== undefined) {
             let name = result.users[i].user.username;
             let fullName = result.users[i].user.full_name;
@@ -176,3 +176,18 @@ function renderStories(data) {
 
     infoContainer.innerHTML = infoLayout;
 };
+
+
+// fetch('/test', {
+//     method: "POST",
+//     // body: JSON.stringify({name: name}),
+//     credentials: 'same-origin',
+//     headers: {
+//         'Content-Type': 'application/json'
+//       },
+// }).then((response) => {
+//     return response.json();
+// }).then((data) => {
+//     console.log(data);
+//     document.querySelector('body').innerHTML = data;
+// });
