@@ -15,19 +15,22 @@ const PORT = process.env.PORT || 3000;
 app.post('/getstories', (req, res) => {
     let username = req.body.name;
     let result = {};
-    async () => {
-        await new Promise((resolve, reject) => {
+    
+    async function getStories() {
+        result.storysInfo = await new Promise((resolve, reject) => {
             request(`https://api.storiesig.com/stories/${username}`, function (error, response, body) {
-                error ? console.log('Не получилось достать сторис, возможно такого имени нет') : resolve(result.storysInfo = body);
+                error ? console.log('Не получилось достать сторис, возможно такого имени нет') : resolve(body);
             });
         });
-        await new Promise((resolve, reject) => {
+        result.userInfo = await new Promise((resolve, reject) => {
             request(`https://www.instagram.com/${username}/?__a=1`, function (error, response, body) {
-                error ? console.log('Не получилось достать сторис, возможно такого имени нет') : resolve(result.userInfo = body);
+                error ? console.log('Не получилось достать сторис, возможно такого имени нет') : resolve(body);
             });
         });
         res.json(JSON.stringify(result));
     };
+    getStories();
+    
 });
 
 app.post('/search', (req, res) => {
