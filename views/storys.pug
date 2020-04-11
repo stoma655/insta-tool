@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="js/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <section class="mainStorys">
+        <div class="wrapper">
+            <a class="logo" href="/">
+                <img src="img/logo.svg" alt="">
+                <span>Insta-tool</span>
+            </a>
+        </div>    
+    </section>
+
+    <section class="info">
+        <div class="wrapper">
+            <div class="logo">
+                img(src=`${result.userInfo.graphql.user.profile_pic_url}`)
+            </div>
+            <div class="names">
+                p(class="name") #{result.userInfo.graphql.user.username}
+                p(class="fullName") #{result.userInfo.graphql.user.full_name}
+            </div>
+            <div class="descrs">
+                <div class="descrsItem">
+                    span #{result.userInfo.graphql.user.edge_owner_to_timeline_media.count}
+                    <p>Публикаций</p> 
+                </div>
+                
+                <div class="descrsItem">
+                    span #{result.userInfo.graphql.user.edge_followed_by.count}
+                    <p>Подписчиков</p>
+                </div>
+
+                <div class="descrsItem">
+                    span #{result.userInfo.graphql.user.edge_follow.count}
+                    <p>Подписок</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="storys">
+        <div class="wrapper">
+            if notStorys
+                div(class="notStorys")
+                    h2 #{notStorys}
+                    div(class="link")
+                        i(class="fa fa-undo" aria-hidden="true")
+                        a(href="/") Вернуться к поиску
+            else
+                each val, index in stories
+                    if val.indexOf('jpg') !== -1
+                        div(class="storyItem") 
+                            a(href=`${val}` download) Скачать
+                                img(src="img/download.png", alt="")
+                            img(src=`${val}`, alt="")
+                    else
+                        div(class="storyItem") 
+                            a(href=`${val}` download) Скачать
+                                img(src="img/download.png", alt="")
+                            video(src=`${val}` controls)
+
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrapper">
+            <div class="links">
+                <a href="#">Пользовательское соглашение</a>
+                <a href="#">Полтитика конфиденциальности</a>
+            </div>
+            <div class="logo">
+                <span>© 2020 Insta-tool</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/para.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
