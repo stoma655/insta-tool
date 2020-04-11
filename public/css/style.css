@@ -178,18 +178,15 @@ section.storys .wrapper .notStorys .link a:hover {
 
 section.storys .wrapper .storyItem {
     width: 270px;
-    height: 480px;
+    height: 538px;
     border-radius: 10px;
     overflow: hidden;
     margin: 0 14px;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
     position: relative;
     box-shadow: 7px 9px 25px -14px rgba(0,0,0,0.75);
 }
 
-section.storys .wrapper .storyItem:hover a{
-    opacity: 1;
-}
 
 section.storys .wrapper .storyItem img {
     max-width: 270px;
@@ -203,23 +200,32 @@ section.storys .wrapper .storyItem video {
 
 section.storys .wrapper .storyItem a {
     z-index: 10;
-    font-size: 16px;
+    font-size: 18px;
+    text-transform: uppercase;
     color: rgb(255, 255, 255);
-    opacity: 0;
-    text-shadow: 3px 2px 4px #000000;
     position: absolute;
     transition: .2s;
-    right: 10px;
-    top: 10px;
+    left: 0px;
+    bottom: 0px;
     display: flex;
+    width: 100%;
+    height: 60px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(247,139,71,1) 0%, rgba(175,0,255,1) 100%);
     align-items: center;
+    justify-content: center;
     text-decoration: none;
 }
 
+section.storys .wrapper .storyItem a:hover {
+    text-decoration: underline;
+}
+
 section.storys .wrapper .storyItem a img {
-    max-width: 25px;
+    max-width: 20px;
     border-radius: 6px;
     margin-left: 10px;
+    margin-right: -32px;
 }
 
 
@@ -306,7 +312,7 @@ input.accountName {
     width: 450px;
     margin-top: 50px;
     z-index: 1;
-    box-shadow: inset 0px 1px 7px 0px rgba(0, 0, 0, 0.3)
+    /* box-shadow: inset 0px 1px 7px 0px rgba(0, 0, 0, 0.3) */
 }
 
 
@@ -627,4 +633,32 @@ footer .wrapper .links a {
 
 footer .wrapper .links a:hover {
     text-decoration: underline;
+}
+
+
+footer.main {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    z-index: 10;
+}
+
+footer.main .wrapper {
+    height: auto;
+}
+
+footer.main .links {
+    height: auto;
+}
+
+footer.main .links a {
+    color: white;
+}
+
+footer.main .logo span {
+    color: white;
+}
+
+.nonevents {
+    pointer-events: none;
 }

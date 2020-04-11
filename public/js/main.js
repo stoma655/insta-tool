@@ -110,7 +110,45 @@ function renderSearch(data) {
     });
 }
 
+let downloads = document.querySelectorAll('.storyItem a');
+downloads.forEach((el) => {
+    el.addEventListener('click', function(e) {
+        downloads.forEach((x) => {
+            x.classList.add('nonevents');
+        });
+        e.preventDefault();
+        let href = this.getAttribute('href');
+        fetch('/download', {
+            method: "POST",
+            body: JSON.stringify({link: href}),
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json'
+                }
+        }).then((response) => {
+            return response.json();
+        }).then((data) => {
+            console.log(data);
+            let link = document.querySelector('.dd');
+            link.setAttribute('href', `/docs/${data}`);
+            link.click();
+            setTimeout(() => {
+                downloads.forEach((x) => {
+                    x.classList.remove('nonevents');
+                });
+            }, 500);
 
+            fetch('/removedoc', {
+                method: "POST",
+                body: JSON.stringify({name: data}),
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                    }
+            })
+        });
+    });
+}); 
 
 
 
@@ -119,7 +157,7 @@ function renderStories(data) {
     // modal.classList.add('active');
     
     // let storriesWrap = document.querySelector('.storiesWrap');
-    
+
     // let stories = [];
     // let storysInfo = JSON.parse(data.storysInfo);
     // let userInfo = JSON.parse(data.userInfo);

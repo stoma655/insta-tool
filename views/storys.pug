@@ -13,7 +13,7 @@
         <div class="wrapper">
             <a class="logo" href="/">
                 <img src="img/logo.svg" alt="">
-                <span>Insta-tool</span>
+                <span>Insta-tool.com</span>
             </a>
         </div>    
     </section>
@@ -21,25 +21,30 @@
     <section class="info">
         <div class="wrapper">
             <div class="logo">
-                img(src=`${result.userInfo.graphql.user.profile_pic_url}`)
+                if (!error)
+                    img(src=`${result.userInfo.graphql.user.profile_pic_url}`)
             </div>
             <div class="names">
-                p(class="name") #{result.userInfo.graphql.user.username}
-                p(class="fullName") #{result.userInfo.graphql.user.full_name}
+                if (!error)
+                    p(class="name") #{result.userInfo.graphql.user.username}
+                    p(class="fullName") #{result.userInfo.graphql.user.full_name}
             </div>
             <div class="descrs">
                 <div class="descrsItem">
-                    span #{result.userInfo.graphql.user.edge_owner_to_timeline_media.count}
+                    if (!error)
+                        span #{result.userInfo.graphql.user.edge_owner_to_timeline_media.count}
                     <p>Публикаций</p> 
                 </div>
                 
                 <div class="descrsItem">
-                    span #{result.userInfo.graphql.user.edge_followed_by.count}
+                    if (!error)
+                        span #{result.userInfo.graphql.user.edge_followed_by.count}
                     <p>Подписчиков</p>
                 </div>
 
                 <div class="descrsItem">
-                    span #{result.userInfo.graphql.user.edge_follow.count}
+                    if (!error)
+                        span #{result.userInfo.graphql.user.edge_follow.count}
                     <p>Подписок</p>
                 </div>
 
@@ -49,25 +54,27 @@
 
     <section class="storys">
         <div class="wrapper">
-            if notStorys
-                div(class="notStorys")
-                    h2 #{notStorys}
-                    div(class="link")
-                        i(class="fa fa-undo" aria-hidden="true")
-                        a(href="/") Вернуться к поиску
-            else
-                each val, index in stories
-                    if val.indexOf('jpg') !== -1
-                        div(class="storyItem") 
-                            a(href=`${val}` download) Скачать
-                                img(src="img/download.png", alt="")
-                            img(src=`${val}`, alt="")
-                    else
-                        div(class="storyItem") 
-                            a(href=`${val}` download) Скачать
-                                img(src="img/download.png", alt="")
-                            video(src=`${val}` controls)
-
+            if (!error)
+                if notStorys
+                    div(class="notStorys")
+                        h2 #{notStorys}
+                        div(class="link")
+                            i(class="fa fa-undo" aria-hidden="true")
+                            a(href="/") Вернуться к поиску
+                else
+                    each val, index in stories
+                        if val.indexOf('jpg') !== -1
+                            div(class="storyItem") 
+                                a(href=`${val}` download) Скачать
+                                    img(src="img/download.png", alt="")
+                                img(src=`${val}`, alt="")
+                        else
+                            div(class="storyItem") 
+                                a(href=`${val}` download) Скачать
+                                    img(src="img/download.png", alt="")
+                                video(src=`${val}` controls)
+            else 
+                h2 #{error}
 
         </div>
     </section>
@@ -79,7 +86,8 @@
                 <a href="#">Полтитика конфиденциальности</a>
             </div>
             <div class="logo">
-                <span>© 2020 Insta-tool</span>
+                <span>© 2020 Insta-tool.com</span>
+                a(class="dd" href="" download="insta-tool")
             </div>
         </div>
     </footer>
