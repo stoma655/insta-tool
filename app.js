@@ -109,7 +109,7 @@ app.post('/removedoc', (req, res) => {
             if (err) throw err;
             console.log('file deleted');
         });
-    }, 500);
+    }, 5000);
 
 
 });
