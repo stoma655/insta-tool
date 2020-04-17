@@ -621,7 +621,8 @@ footer .wrapper .links {
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 footer .wrapper .links a {
@@ -663,10 +664,104 @@ footer.main .logo span {
     pointer-events: none;
 }
 
+.info .logo_wrap {
+    display: flex;
+    align-items: center;
+}
 
 
 /* MEDIA  */
 
+
+@media screen and (max-width: 1260px) {
+    section.mainStorys .wrapper {
+        height: 100px;
+    }
+    section.mainStorys .wrapper a.logo img {
+        max-width: 70px;
+    }
+
+    section.mainStorys .wrapper a.logo span {
+        font-size: 32px;
+    }
+
+    section.info .wrapper {
+        padding: 20px;
+    }
+
+    section.info .wrapper .logo {
+        max-width: 80px;
+        max-height: 80px;
+    }
+
+    section.info .wrapper .logo img {
+        max-width: 80px;
+        max-height: 80px;
+    }
+
+    section.info .wrapper .name {
+        font-size: 26px;
+    }
+
+    section.storys .wrapper {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 959px) {
+    section.storys .wrapper .storyItem {
+        width: 240px;
+        height: 480px;
+    }
+
+    section.storys .wrapper .storyItem video {
+        max-width: 240px;
+    }
+
+    section.storys .wrapper .storyItem img {
+        max-width: 240px;
+    }
+}
+
+@media screen and (max-width: 778px) {
+    section.info .wrapper .descrs {
+        margin-left: 30px;
+        flex-direction: column;
+    }
+
+    section.info .wrapper .descrs .descrsItem {
+        border-bottom: 1px solid #bababa88;
+        border-right: none;
+        padding: 10px;
+    }
+
+    section.info .wrapper .descrs .descrsItem span {
+        font-size: 16px;
+    }
+
+    section.info .wrapper .descrs .descrsItem p {
+        font-size: 16px;
+    }
+
+    .info .logo_wrap {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    section.info .wrapper .names {
+        padding-left: 0;
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    section.info .wrapper {
+        display: flex;
+        justify-content: center;
+    }
+}
 
 @media screen and (max-width: 868px) {
     section.main .mainOverlayContent > img {
@@ -696,6 +791,12 @@ footer.main .logo span {
     }
 }
 
+@media screen and (max-width: 552px) {
+    section.storys .wrapper .storyItem {
+        margin-bottom: 20px;
+    }
+}
+
 @media screen and (max-width: 520px) {
     h1 {
         font-size: 32px;
@@ -705,6 +806,21 @@ footer.main .logo span {
     }
     input.accountName {
         width: 320px;
+    }
+    .search {
+        width: 320px;
+        z-index: 260;
+    }
+    footer.main {
+        z-index: 10;
+    }
+    .search .search {
+        z-index: 30;
+        position: relative;
+    }
+    input.accountName {
+        position: relative;
+        z-index: 30;
     }
 }
 
@@ -723,5 +839,28 @@ footer.main .logo span {
     p.mainDescr {
         text-align: center;
     }
-    
+    .search {
+        width: 280px;
+    }
+    .search .item > img {
+        max-width: 40px;
+        max-height: 40px;
+    }
+    .search .item .preloader span {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .search .item .names {
+        justify-content: flex-start;
+    }
+    .search .item .names span {
+        font-size: 16px;
+    }
+    .search .item {
+        height: 72px;
+    }
+    .search .searchWrap {
+        max-height: 230px;
+    }
+
 }

@@ -20,14 +20,16 @@
 
     <section class="info">
         <div class="wrapper">
-            <div class="logo">
-                if (!error)
-                    img(src=`${result.userInfo.graphql.user.profile_pic_url}`)
-            </div>
-            <div class="names">
-                if (!error)
-                    p(class="name") #{result.userInfo.graphql.user.username}
-                    p(class="fullName") #{result.userInfo.graphql.user.full_name}
+            <div class="logo_wrap">
+                <div class="logo">
+                    if (!error)
+                        img(src=`${result.userInfo.graphql.user.profile_pic_url}`)
+                </div>
+                <div class="names">
+                    if (!error)
+                        p(class="name") #{result.userInfo.graphql.user.username}
+                        p(class="fullName") #{result.userInfo.graphql.user.full_name}
+                </div>
             </div>
             <div class="descrs">
                 <div class="descrsItem">
@@ -82,7 +84,6 @@
     <footer>
         <div class="wrapper">
             <div class="links">
-                <a href="#">Пользовательское соглашение</a>
                 <a href="#">Полтитика конфиденциальности</a>
             </div>
             <div class="logo">
